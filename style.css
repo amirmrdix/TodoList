@@ -1,0 +1,220 @@
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    border: none; outline: none;
+}
+@font-face {
+    font-family: 'fontB';
+    src: url(Nunito-Black.ttf);
+}
+@font-face {
+    font-family: 'font';
+    src: url(Nunito-Regular.ttf);
+}
+:root{
+    --color : #fca311;
+    --color2 : #E5E5E5;
+}
+body{
+    background-color: #14213d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    font-family: font;
+}
+
+
+/* header */
+header{
+    display: flex;
+    flex-direction: row;
+    padding: 1.2rem;
+}
+h1{
+    font-family: fontB;
+    color: white;
+    padding: 0.3rem;
+}
+p{
+    font-family: font;
+    color: white;
+    padding: 0.4rem;
+}
+header i{
+    font-size: 5rem;
+    color: var(--color);
+    padding: 0.5rem;
+}
+
+
+
+
+/* main */
+main form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+.inputcontainer{
+    display: flex;
+    flex-direction: row;
+}
+.inputcontainer input{
+    background: transparent;
+    background-color: var(--color2);
+    font-size: 18px;
+    font-family: font;
+    width: 500px; height: 30px;
+    padding: 20px;
+    padding-left: 43px;
+    border-radius: 10px 25px 25px 10px;
+}
+.inputcontainer i:first-child{
+    font-size: 1.3rem;
+    transform: translate(33px,10px);
+    cursor: text;
+}
+.addItemButton{
+    font-size: 40px;
+    color: var(--color);
+    margin-left: -40px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.addItemButton:hover{
+    font-size: 42px;
+    color: #fbb442;
+    transform: translateY(-1px);
+}
+
+
+
+
+.categoryContainer{
+    display: flex;
+    gap: 0.7em;
+    align-items: center;
+    position: absolute;
+    margin-left: 380px;
+}
+.categoryContainer i{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    border-radius: 50%;
+    width: 1.7em; height: 1.7em;
+    color: var(--color2);
+    z-index: -1;
+    cursor: pointer;
+}
+.work{
+    background-color: rgb(236, 38, 78);
+}
+.gym{
+    background-color: rgb(181, 126, 24);
+}
+.home{
+    background-color: rgb(53, 165, 68);
+}
+
+@keyframes moveCategory {
+    0%{
+        margin-left: 380px;
+    }
+    30%{
+        margin-left: 535px;
+    }
+    100%{
+        margin-left: 535px;
+        z-index: 0;
+    }
+}
+@keyframes turnIcon {
+    to {
+        transform: rotate(1turn);
+    }
+}
+.add{
+    animation: moveCategory 2s forwards;
+}
+.add i{
+    animation: turnIcon 1s 2;
+}
+
+
+
+
+
+
+.todoContainer ul{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5em;
+    list-style-type: none;
+}
+.todoItem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    width: 500px;
+    border-radius: 0.7em 1.5em  0.7em 1.5em;
+    padding: 0.7em 0.8em 0.8em 0.7em;
+    margin-left: 1.2em; margin-top: 1em;
+    transition: 0.5s;
+}
+.todoItem li{
+    width: 75%;
+}
+.todoItem i{
+    font-size: 1.2em;
+    padding: 0 0.2em 0 0.2em;
+}
+.todoItem i:nth-child(3) , .todoItem i:nth-child(4) , .todoItem i:nth-child(5){
+    cursor: pointer;
+}
+.todoItem i:nth-child(3):hover{
+    transition: 0.2s;
+    color: rgb(37, 37, 37);
+}
+.todoItem i:nth-child(4):hover{
+    transition: 0.2s;
+    color: rgb(37, 37, 37);
+}
+.todoItem i:nth-child(5):hover{
+    transition: 0.2s;
+    color: rgb(37, 37, 37);
+}
+
+
+
+
+
+.completed{
+    opacity: 0.3;
+    order: 2;
+}
+.completed li{
+    text-decoration: line-through;
+}
+.completed i:nth-child(3){
+    color: rgb(0, 77, 0);
+}
+
+
+
+
+
+.editing li{
+    animation: blink 0.5s;
+}
+.editing i:nth-child(4){
+    color: rgb(37, 37, 37);
+}
+@keyframes blink {
+    to{opacity: 0;}
+}
